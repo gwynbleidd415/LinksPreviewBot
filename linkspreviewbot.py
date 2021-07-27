@@ -41,11 +41,12 @@ async def on_message(message):
             thumbnail = getTagValue(tree, 'image:src')
         embed = discord.Embed(title=getTagValue(tree, 'title'), url=message.content, description=getTagValue(
             tree, 'description'), provider=getTagValue(tree, 'site_name'))
-        embed.set_thumbnail(url=thumbnail)
+        if(thumbnail):
+            embed.set_thumbnail(url=thumbnail)
         embed.set_footer(text=getTagValue(tree, 'site_name'))
         # embed.set_author(name = getTagValue(tree, 'author'))
-        await message.delete()
         await message.channel.send(embed=embed)
+        await message.delete()
 
 
 client.run(token)
