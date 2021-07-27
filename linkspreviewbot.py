@@ -4,10 +4,10 @@ import os
 import requests
 from lxml import html
 from dotenv import load_dotenv
-import nest_asyncio
+# import nest_asyncio
 
 
-nest_asyncio.apply()
+# nest_asyncio.apply()
 
 load_dotenv('.env')
 token = os.getenv('BOT_TOKEN')
